@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head th:replace="fragments/header :: header-css">
+</head>
+
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+    <div class="cart_area section_padding_100 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <button sec:authorize="hasRole('ROLE_ADMIN')" class="btn">
+                        <a th:href="@{/product/add}">+ Add Product</i></a>
+                    </button>
+                    <div class="cart-table clearfix">
+                        <table class="table table-responsive">
+                            <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Quantity</th>
+                                <th>Email Address</th>
+                                <th>Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr  th:each="shopOrder : ${orders}">
+                                <td class="id ">
+                                    <h6 th:text="${shopOrder.getId()}"></h6>
+                                </td>
+                                <td class="price"><span th:text="${shopOrder.getFirst_name()}"></span></td>
+                                <td class="price"><span th:text="${shopOrder.getLast_name()}"></span></td>
+                                <td class="price"><span th:text="${shopOrder.getQuantity()}"></span></td>
+                                <td class="price"><span th:text="${shopOrder.getEmail()}"></span></td>
+                                <td class="price"><span th:text="${shopOrder.getTotal()}"></span></td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cart-footer d-flex mt-30">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
