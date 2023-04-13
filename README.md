@@ -14,7 +14,7 @@
 
 You can clone this repository and use it localy:
 ```sh
-$ https://github.com/Kapadokia-Titus/Karl-Ecommerce.git
+$ https://github.com/archanajanamolla/Clothes4men.git
 ```
 
 **Using Maven plugin**
